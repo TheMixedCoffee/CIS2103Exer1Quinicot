@@ -12,7 +12,9 @@ package texasholdem;
  * @author quinicotis_cis21035
  */
 public class Dealer {
-    public static void shuffle(Deck deck){
+    public static Deck cardDeck = new Deck();
+    
+    public static void shuffle(){
         System.out.println("Shuffling deck");
     }
     
@@ -24,11 +26,11 @@ public class Dealer {
         return retVal;
     }
     
-    public static void deal(Player[] playerList, int numPlayers, Deck deck){
+    public static void deal(Player[] playerList, int numPlayers){
         int i, j;
         for(i=0;i<numPlayers;i++){
             for(j = 0; j<2; j++){
-                playerList[i].hand = deck;
+                playerList[i].hand = cardDeck.getRandomCard(cardDeck.deck);
             }
         }
         
